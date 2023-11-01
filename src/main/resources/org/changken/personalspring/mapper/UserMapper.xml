@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.changken.personalspring.mapper.UserMapper">
+    <resultMap id="user" type="org.changken.personalspring.pojo.User">
+        <id column="id" property="id" javaType="int"></id>
+        <result column="username" property="username" javaType="String"></result>
+        <result column="birthday" property="birthday" javaType="java.util.Date"></result>
+        <result column="age" property="age" javaType="int"></result>
+    </resultMap>
+    <select id="selectUserList" resultType="org.changken.personalspring.pojo.User">
+        SELECT * FROM `users`
+    </select>
+</mapper>
+<!-- namespace:改mapper.xml映射文件的唯一标识并且必须和数据处理层的接口的路径相同-->
+<!--<mapper namespace="com.cody.sbootmybatis.sbootmybatis.mapper.UserMapper">-->
+<!--    &lt;!&ndash;   必须添加property属性 ，区别于是否加主键&ndash;&gt;-->
+<!--    <resultMap id="user" type="User">-->
+<!--        <id column="userid" property="userid" javaType="int" ></id>-->
+<!--        <result column="username" property="username" javaType="String" ></result>-->
+<!--        <result column="userage" property="userage" javaType="int" ></result>-->
+<!--        <result column="userpwd" property="userpwd" javaType="String" ></result>-->
+<!--    </resultMap>-->
+<!--    &lt;!&ndash;id的值必须和数据处理层的接口名一致&ndash;&gt;-->
+<!--    &lt;!&ndash;此处的User&ndash;&gt;-->
+<!--    <select id="queryAlluser" resultType="User">-->
+<!--        select * from  user-->
+<!--    </select>-->
+<!--    <select id="queryuserbyid"   parameterType="int" resultMap="user" resultType="User">-->
+<!--        select * from  user-->
+<!--        <trim suffixOverrides="and"  prefixOverrides="and">-->
+<!--            <where>-->
+<!--                <if test="userid!=null">-->
+<!--                    and userid = #{userid}-->
+<!--                </if>-->
+<!--            </where>-->
+<!--        </trim>-->
+<!--    </select>-->
+<!--    <select id="queryuserbyname" resultType="User" parameterType="string" resultMap="user">-->
+<!--        select * from  user-->
+<!--        <trim suffixOverrides="and"  prefixOverrides="and">-->
+<!--            <where>-->
+<!--                <if test="username!=null">-->
+<!--                    and username = #{username}-->
+<!--                </if>-->
+<!--            </where>-->
+<!--        </trim>-->
+<!--    </select>-->
+<!--    <update id="UpdUser" parameterType="User">-->
+<!--    </update>-->
+<!--    <delete id="DelUser"></delete>-->
+<!--    <insert id="AddUser" parameterType="User" >-->
+<!--        insert into  user value (${userid},#{username},${userage},#{userpwd})-->
+<!--    </insert>-->
+<!--</mapper>-->
