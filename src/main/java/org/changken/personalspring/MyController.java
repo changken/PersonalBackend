@@ -54,7 +54,7 @@ public class MyController {
         List<User> users = new ArrayList<>();
         try{
             users.addAll(userDAO.findAll());
-        }catch (SQLException e){
+        }catch (Exception e){
             System.err.println(e.getMessage());
         }
         return users;
@@ -65,7 +65,7 @@ public class MyController {
         User user = new User();
         try{
             user = userDAO.findOne(id);
-        }catch (SQLException e){
+        }catch (Exception e){
             System.err.println(e.getMessage());
         }
         return user;
@@ -77,7 +77,7 @@ public class MyController {
         int affected_rows = 0;
         try{
             affected_rows = userDAO.insert(user);
-        }catch (SQLException e){
+        }catch (Exception e){
             System.err.println(e.getMessage());
         }
 
@@ -93,7 +93,7 @@ public class MyController {
         int affected_rows = 0;
         try{
             affected_rows = userDAO.update(user);
-        }catch (SQLException e){
+        }catch (Exception e){
             System.err.println(e.getMessage());
         }
 
@@ -109,7 +109,7 @@ public class MyController {
         int affected_rows = 0;
         try{
             affected_rows = userDAO.delete(id);
-        }catch (SQLException e){
+        }catch (Exception e){
             System.err.println(e.getMessage());
         }
 

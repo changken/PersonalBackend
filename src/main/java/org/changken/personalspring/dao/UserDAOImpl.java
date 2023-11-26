@@ -10,9 +10,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+//Repository
 public class UserDAOImpl implements UserDAO {
-    @Autowired
+    //@Autowired
     private DataSource dataSource;
 
     @Override
