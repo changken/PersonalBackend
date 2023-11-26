@@ -29,6 +29,19 @@ public class User implements Serializable {
     @Column(name="dupdated_at")
     private Date updated_at;
 
+    public User() {
+    }
+
+    public User(Long id, String username, String password, String level, Date birthday, Date created_at, Date updated_at) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.level = level;
+        this.birthday = birthday;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
+
     public Long getId() {
         return id;
     }
@@ -61,7 +74,7 @@ public class User implements Serializable {
         this.level = level;
     }
 
-    public Date getBirthday() {
+    public java.util.Date getBirthday() {
         return birthday;
     }
 
