@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.changken.personalspring.mapper.UserMapper">
     <resultMap id="user" type="org.changken.personalspring.pojo.User">
-        <id column="id" property="id" javaType="int"></id>
+        <id column="id" property="id" javaType="long"></id>
         <result column="username" property="username" javaType="String"></result>
         <result column="birthday" property="birthday" javaType="java.util.Date"></result>
         <result column="age" property="age" javaType="int"></result>
