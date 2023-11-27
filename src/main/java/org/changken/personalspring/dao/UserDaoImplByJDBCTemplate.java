@@ -1,5 +1,6 @@
 package org.changken.personalspring.dao;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.changken.personalspring.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -56,16 +57,35 @@ public class UserDaoImplByJDBCTemplate  implements UserDAO{
 
     @Override
     public int insert(User user) throws Exception {
-        return 0;
+        String sql = "INSERT INTO usertbl (vchusername, vchpassword, vchlevel, dbirthday) VALUES (?,?,?,?)";
+        int affected_rows = jdbcTemplate.update(sql, new Object[]{
+                user.getUsername(),
+                new DigestUtils("SHA3-256").digestAsHex(user.getPassword()),
+                user.getLevel(),
+                user.getBirthday()
+        });
+        return affected_rows;
     }
 
     @Override
     public int update(User user) throws Exception {
-        return 0;
+        String sql = "UPDATE usertbl SET vchusername=?, vchpassword=?, vchlevel=?, dbirthday=?, dupdated_at=CURRENT_TIMESTAMP() WHERE nid=?";
+        int affected_rows = jdbcTemplate.update(sql, new Object[]{
+                user.getUsername(),
+                new DigestUtils("SHA3-256").digestAsHex(user.getPassword()),
+                user.getLevel(),
+                user.getBirthday(),
+                user.getId()
+        });
+        return affected_rows;
     }
 
     @Override
     public int delete(Long id) throws Exception {
-        return 0;
+        String sql = "DELETE FROM usertbl WHERE nid=?";
+        int affected_rows = jdbcTemplate.update(sql, new Object[]{
+                id
+        });
+        return affected_rows;
     }
 }
