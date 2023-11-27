@@ -40,12 +40,12 @@ public class MyController {
     UserDAO userDAO;
 
     @GetMapping("/get_all_users")
-    public Iterable<User> getAllUsers(){
+    public List<User> getAllUsers(){
         return userRepository.findAll();
     }
 
     @GetMapping("/get_all_memos")
-    public  Iterable<Memo> getAllMemos(){
+    public  List<Memo> getAllMemos(){
         return memoRepository.findAll();
     }
 

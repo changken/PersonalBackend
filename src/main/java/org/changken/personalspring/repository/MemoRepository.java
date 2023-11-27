@@ -1,9 +1,10 @@
 package org.changken.personalspring.repository;
 
 import org.changken.personalspring.pojo.Memo;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MemoRepository extends CrudRepository<Memo, Long> {
+public interface MemoRepository extends JpaRepository<Memo, Long> {
 }

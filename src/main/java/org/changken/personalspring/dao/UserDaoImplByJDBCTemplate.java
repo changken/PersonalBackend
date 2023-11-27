@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-@Repository
+//@Repository
 public class UserDaoImplByJDBCTemplate  implements UserDAO{
     @Autowired
     JdbcTemplate jdbcTemplate;
